@@ -22,4 +22,4 @@ yarn-error.log*
 
 .jshintrc
 
-js/script_draft
+js/script_draft.js
