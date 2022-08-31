@@ -9,25 +9,33 @@ str.length - и получить её длину)
 "Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
 4) Потренироваться и переписать цикл еще двумя способами*/
 
-// "use strict";
+"use strict";
 
-window.addEventListener('DOMContentLoaded', function() {
-    let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?',''),
-    watchedMovie = '',
-    personalMovieDB = {
-        count: numberOfFilms,
-        movies: {},
-        actors: {},
-        genres: [],
-        'private': 'boolean',
-    };
+let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?','');
 
-    
-    for (let i = 0; i < 2; i++) {   
-        watchedMovie = prompt('Один из последних просмотренных фильмов?', '');
-        personalMovieDB.movies[watchedMovie] = prompt('На сколько оцените его?', '');        
+const personalMovieDB = {
+    count: +numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    'private': 'boolean',
+};
+
+for (let i = numberOfFilms; i === '' || numberOfFilms === null; i = numberOfFilms) {
+    numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?','');
+}
+
+for (let i = 0; i < 1; i++) {   
+    let a = '',
+        b = '';
+
+    for (let j = a; j === ''  || j === null || j.length > 50; j = a) {
+        a = prompt('Один из последних просмотренных фильмов?', '');
+    } 
+    for (let j = b; j === '' || j === null; j = b){
+        b = prompt('На сколько оцените его?', '');
     }
+    personalMovieDB.movies[a] = b;    
+}
 
-    console.log(personalMovieDB);
-}); 
-
+console.log(personalMovieDB);
