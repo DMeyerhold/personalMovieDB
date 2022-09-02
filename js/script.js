@@ -17,7 +17,7 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    'private': 'boolean',
+    private: false
 };
 
 // нельзя ответить пустой строкой, отменить ответ или ввести название длинее 50 символов
@@ -38,7 +38,7 @@ function rememberMyFilms () {
     }
 }
 
-rememberMyFilms ();
+// rememberMyFilms ();
 
 function detectPersonalLevel () {
     if (personalMovieDB.count < 10) {
@@ -55,19 +55,17 @@ function detectPersonalLevel () {
 detectPersonalLevel ();
 
 function writeYourGenres() {
-    for (let i = 0; i < 3; i++) {
-        personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}:`, '');
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}:`, '');
     }
 }
 
 writeYourGenres ();
 
-function showMyDB() {
-    if (personalMovieDB.private === false) {
+function showMyDB(hidden) {
+    if (!hidden) {
         console.log(personalMovieDB);
     }
 }
 
-personalMovieDB.private = false;
-
-showMyDB ();
+showMyDB (personalMovieDB.private);
